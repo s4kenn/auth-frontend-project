@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { handleSuccess, handleError } from "../utils.ts";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login() {
   const initialState = {
@@ -87,6 +88,9 @@ function Login() {
           />
         </div>
         <button type="submit">Login</button>
+        <span>
+          New User ?<Link to="/signup">Sign Up</Link>
+        </span>
       </form>
       <ToastContainer />
     </div>
