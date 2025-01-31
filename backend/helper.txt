@@ -1,1 +1,2 @@
-JOI library
+JOI library -> for server side validation
+npm i express jsonwebtoken bcrypt body-parser dotenv mongoose joi cors
