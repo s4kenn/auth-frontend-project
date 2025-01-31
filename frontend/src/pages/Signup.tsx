@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { handleSuccess, handleError } from "../utils.ts";
 
@@ -10,6 +10,8 @@ function SignUp() {
     password: "",
   };
   const [info, setInfo] = useState(initialState);
+
+  const navigate = useNavigate();
 
   const handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -37,14 +39,20 @@ function SignUp() {
       });
 
       const result = await response.json();
-      if (!result) {
-        return handleError("Failed to sign up");
+      const { success, message } = result;
+
+      if (!success) {
+        return handleError(`${message}`);
       }
 
       setInfo(initialState);
-      return handleSuccess("Signup successful");
+      handleSuccess(`${message}`);
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
     } catch (error: any) {
-      handleError(error.message);
+      handleError(`Server error`);
     }
   };
 
