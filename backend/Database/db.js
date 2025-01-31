@@ -4,7 +4,7 @@ const connectToDB = async () => {
 
     try {
 
-        mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.9yny4.mongodb.net/`)
+        mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.9yny4.mongodb.net/QuestSearch`)
         console.log(`MongoDB connected successfully`);
 
     } catch (error) {
