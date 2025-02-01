@@ -24,7 +24,7 @@ function Home() {
 
   async function fetchProducts() {
     try {
-      const url = "http://localhost:3000/products/get";
+      const url = "https://auth-frontend-project.vercel.app/products/get";
       const token = localStorage.getItem("token");
       const response = await fetch(url, {
         headers: {
